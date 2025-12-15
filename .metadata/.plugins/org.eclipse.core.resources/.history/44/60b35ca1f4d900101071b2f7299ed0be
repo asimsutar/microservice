@@ -1,0 +1,5 @@
+package com.tcs.feign;
+
+public interface LaptopClient {
+
+}

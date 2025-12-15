@@ -1,0 +1,40 @@
+package com.tcs.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.tcs.dto.EmployeeLaptoResponse;
+import com.tcs.entity.Employee;
+import com.tcs.exception.EmployeeNotFoundException;
+import com.tcs.exception.LaptopAlreadyAssignedException;
+import com.tcs.exception.LaptopNotFoundException;
+import com.tcs.service.EmployeeService;
+
+@RestController
+@RequestMapping("/employee")
+public class EmployeeController {
+	@Autowired
+	EmployeeService service;
+	
+	@PostMapping
+	public ResponseEntity<Employee> addEmployee(@RequestBody Employee employee){
+		return new ResponseEntity<Employee>(service.addEmployee(employee), HttpStatus.OK);
+	}
+	@PutMapping("/{id}/assign/{laptopId}")
+	public ResponseEntity<Employee> assignLaptop(@PathVariable Long id, @PathVariable Long laptopId) throws EmployeeNotFoundException, LaptopNotFoundException, LaptopAlreadyAssignedException{
+		return new ResponseEntity<Employee>(service.assignLaptop(id, laptopId), HttpStatus.OK);
+	}
+	
+	@GetMapping("/{id}/details")
+	public ResponseEntity<EmployeeLaptoResponse> getEmployeeDetails(@PathVariable Long id) throws EmployeeNotFoundException{
+		return new ResponseEntity<EmployeeLaptoResponse>(service.getEmployeewithId(id), HttpStatus.OK);
+	}
+}

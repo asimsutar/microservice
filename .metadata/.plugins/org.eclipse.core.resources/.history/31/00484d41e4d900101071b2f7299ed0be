@@ -1,0 +1,16 @@
+package com.tcs.entity;
+
+import jakarta.persistence.Entity;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Laptop {
+	private Long id;
+	private String brand;
+	private String model;
+}

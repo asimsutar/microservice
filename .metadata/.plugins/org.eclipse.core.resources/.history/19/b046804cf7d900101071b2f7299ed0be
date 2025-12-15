@@ -1,0 +1,44 @@
+package com.tcs.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.tcs.dto.EmployeeLaptoResponse;
+import com.tcs.entity.Employee;
+import com.tcs.exception.EmployeeNotFoundException;
+import com.tcs.repository.EmployeeRepository;
+
+public class EmployeeServiceImplements implements EmployeeService {
+	
+	@Autowired
+	EmployeeRepository employeeRepository;
+	
+	@Override
+	public Employee addEmployee(Employee employee) {
+		
+		return employeeRepository.save(employee);
+	}
+
+	@Override
+	public Employee assignLaptop(Long id, Long laptopId) {
+		Employee employee = employeeRepository.
+					findById(id).
+						orElseThrow(()->
+							new EmployeeNotFoundException("Employee Not Found With Id "+id));
+		return null;
+	}
+
+	@Override
+	public EmployeeLaptoResponse getEmployeewithId(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<EmployeeLaptoResponse> getAllEmployee() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

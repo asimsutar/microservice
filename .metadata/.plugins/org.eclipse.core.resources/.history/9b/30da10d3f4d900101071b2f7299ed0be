@@ -1,0 +1,9 @@
+package com.tcs.feign;
+
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.tcs.dto.LaptopDTO;
+
+public interface LaptopClient {
+	LaptopDTO getlaptop(@PathVariable Long id);
+}

@@ -1,0 +1,33 @@
+package com.tcs.exeption;
+
+
+import java.time.LocalDateTime;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+	
+	@ExceptionHandler(value = LaptopNotFoundException.class)
+	public ResponseEntity<ErrorInfo> HandleLaptopNotFoundException(LaptopNotFoundException exception) {
+		ErrorInfo errorInfo = new ErrorInfo();
+		errorInfo.setMessage(exception.getMessage());
+		errorInfo.setLocalDateTime(LocalDateTime.now());
+		errorInfo.setStatus(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<ErrorInfo>(errorInfo, HttpStatus.NOT_FOUND);
+	}
+	@ExceptionHandler(Exception.class)
+	public ResponseEntity<ErrorInfo> handleGlobalException(Exception exception) {
+
+	    ErrorInfo errorInfo = new ErrorInfo();
+	    errorInfo.setMessage(exception.getMessage());
+	    errorInfo.setLocalDateTime(LocalDateTime.now());
+	    errorInfo.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+
+	    return new ResponseEntity<>(errorInfo, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+
+}

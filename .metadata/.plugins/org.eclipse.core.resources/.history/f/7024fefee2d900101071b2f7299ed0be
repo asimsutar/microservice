@@ -1,0 +1,10 @@
+package com.tcs.entity;
+
+import jakarta.persistence.Entity;
+
+@Entity
+public class Laptop {
+	private Long id;
+	private String brand;
+	private String model;
+}

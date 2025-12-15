@@ -1,0 +1,33 @@
+package com.tcs.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.tcs.entity.Laptop;
+import com.tcs.repository.LaptopRepository;
+@Service
+public class LaptopServiceImplement implements LaptopService {
+	
+	@Autowired
+	LaptopRepository laptopRepository;
+	@Override
+	public Laptop addLaptop(Laptop laptop) {
+		
+		return ;
+	}
+
+	@Override
+	public List<Laptop> getAllLaptop() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Laptop getLaptopById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

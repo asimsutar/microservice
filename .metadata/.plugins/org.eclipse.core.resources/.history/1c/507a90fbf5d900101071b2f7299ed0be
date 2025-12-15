@@ -1,0 +1,34 @@
+package com.tcs.service;
+
+import java.util.List;
+
+import com.tcs.dto.EmployeeLaptoResponse;
+import com.tcs.entity.Employee;
+
+public class EmployeeServiceImplements implements EmployeeService {
+
+	@Override
+	public Employee addEmployee(Employee employee) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Employee assignLaptop(Long id, Long laptopId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public EmployeeLaptoResponse getEmployeewithId(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<EmployeeLaptoResponse> getAllEmployee() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
