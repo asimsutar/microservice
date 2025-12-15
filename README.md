@@ -15,7 +15,7 @@ An employee can be assigned a laptop using Feign client communication.
 ## 🧩 Microservices Details
 
 ### 🟦 Employee Service
-- Port: 9013
+- Port: 9090
 - Responsibilities:
   - Add employees
   - Assign laptops to employees
